@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Password Generator</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#141e30,#243b55);
+color:white;
+}
+
+.container{
+background:#1e1e2f;
+padding:30px;
+border-radius:12px;
+width:360px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+.password-box{
+display:flex;
+margin-bottom:20px;
+}
+
+.password-box input{
+flex:1;
+padding:10px;
+font-size:16px;
+border:none;
+outline:none;
+border-radius:6px 0 0 6px;
+}
+
+.password-box button{
+padding:10px 15px;
+border:none;
+background:#4CAF50;
+color:white;
+cursor:pointer;
+border-radius:0 6px 6px 0;
+}
+
+.settings label{
+display:block;
+margin-top:10px;
+font-size:14px;
+}
+
+#generate{
+margin-top:20px;
+width:100%;
+padding:12px;
+border:none;
+background:#ff9800;
+font-size:16px;
+cursor:pointer;
+border-radius:6px;
+}
+
+#strength{
+margin-top:15px;
+text-align:center;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Password Generator</h1>
+
+<div class="password-box">
+<input type="text" id="password" readonly>
+<button id="copy">Copy</button>
+</div>
+
+<div class="settings">
+
+<label>Password Length</label>
+<input type="range" min="6" max="32" value="12" id="length">
+<span id="lengthValue">12</span>
+
+<label><input type="checkbox" id="uppercase" checked> Uppercase Letters</label>
+<label><input type="checkbox" id="lowercase" checked> Lowercase Letters</label>
+<label><input type="checkbox" id="numbers" checked> Numbers</label>
+<label><input type="checkbox" id="symbols" checked> Symbols</label>
+
+<button id="generate">Generate Password</button>
+
+</div>
+
+<div id="strength">Strength: Weak</div>
+
+</div>
+
+<script>
+
+const passwordBox = document.getElementById("password");
+const lengthSlider = document.getElementById("length");
+const lengthValue = document.getElementById("lengthValue");
+const uppercase = document.getElementById("uppercase");
+const lowercase = document.getElementById("lowercase");
+const numbers = document.getElementById("numbers");
+const symbols = document.getElementById("symbols");
+const generateBtn = document.getElementById("generate");
+const copyBtn = document.getElementById("copy");
+const strengthText = document.getElementById("strength");
+
+const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowerChars = "abcdefghijklmnopqrstuvwxyz";
+const numberChars = "0123456789";
+const symbolChars = "!@#$%^&*()_+[]{}<>?/";
+
+lengthSlider.oninput = () => {
+lengthValue.textContent = lengthSlider.value;
+}
+
+generateBtn.onclick = () => {
+
+let characters = "";
+
+if(uppercase.checked) characters += upperChars;
+if(lowercase.checked) characters += lowerChars;
+if(numbers.checked) characters += numberChars;
+if(symbols.checked) characters += symbolChars;
+
+let password = "";
+
+for(let i=0;i<lengthSlider.value;i++){
+password += characters.charAt(Math.floor(Math.random()*characters.length));
+}
+
+passwordBox.value = password;
+
+checkStrength(password);
+
+}
+
+copyBtn.onclick = () => {
+
+passwordBox.select();
+document.execCommand("copy");
+
+copyBtn.innerText = "Copied!";
+
+setTimeout(()=>{
+copyBtn.innerText="Copy";
+},2000)
+
+}
+
+function checkStrength(password){
+
+let strength = 0;
+
+if(password.length >= 12) strength++;
+if(/[A-Z]/.test(password)) strength++;
+if(/[0-9]/.test(password)) strength++;
+if(/[!@#$%^&*]/.test(password)) strength++;
+
+if(strength <= 2){
+strengthText.textContent = "Strength: Weak";
+strengthText.style.color = "red";
+}
+else if(strength == 3){
+strengthText.textContent = "Strength: Medium";
+strengthText.style.color = "orange";
+}
+else{
+strengthText.textContent = "Strength: Strong";
+strengthText.style.color = "lime";
+}
+
+}
+
+</script>
+
+</body>
+</html>
