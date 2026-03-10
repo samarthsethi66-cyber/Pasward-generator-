@@ -8,7 +8,7 @@ This project allows users to generate strong and customizable passwords instantl
 ## 🚀 Live Demo
 
 👉 **Live Website:**
-[https://your-demo-link.com](https://your-demo-link.com)
+https://samarthsethi66-cyber.github.io/Pasward-generator-/
 
 ---
 
