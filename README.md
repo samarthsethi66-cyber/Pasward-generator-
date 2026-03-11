@@ -14,7 +14,7 @@ https://samarthsethi66-cyber.github.io/Pasward-generator-/
 
 ## 📸 Project Screenshot 
 
-(./screenshot.png)
+Screenshot_20260310-110839.jpg
 
 ---
 
