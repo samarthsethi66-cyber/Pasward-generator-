@@ -14,19 +14,18 @@ https://samarthsethi66-cyber.github.io/Pasward-generator-/
 
 ## 📸 Project Screenshot 
 
-Screenshot_20260310-110839.jpg
+Screenshot.pn
 
----
-
-## ✨ Features
+✨ Features
 
 * 🔐 Generate **strong and secure passwords**
+  
 * 🎛 **Adjustable password length** (6 – 32 characters)
 * 🔠 Include **uppercase letters**
 * 🔡 Include **lowercase letters**
 * 🔢 Include **numbers**
 * 🔣 Include **symbols**
-* 📊 **Password strength indicator**
+* 📊 **Password strength indicator
 * 📋 **One-click copy to clipboard**
 * 🎨 Modern and responsive UI design
 
