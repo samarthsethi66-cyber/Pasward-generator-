@@ -75,18 +75,7 @@ password-generator
 
 ---
 
-## 👨‍💻 Author
-
-Abhishek Sharma
+ 👨‍💻 Author
+samarth sethi
 
 If you like this project, feel free to ⭐ the repository and share your feedback!
-
----
-
-💡 Agar chaho to mai tumhe **GitHub README ko aur professional bana kar bhi de sakta hu jisme:
-
-* badges
-* animated GIF demo
-* shields.io icons
-* contribution section
-* license section
